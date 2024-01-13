@@ -12,7 +12,7 @@ window.title("Music Player")
 
 # Music folder
 script_directory = os.path.dirname(os.path.abspath(__file__))
-music_folder = os.path.join(os.path.expanduser("~/Documents/Phantom AK Code Jazel - 1.7/Phantom AK 1.8 - Beta/Phantom AK 1.8 - English"), "Music")
+music_folder = os.path.join(os.path.expanduser("~/Documents/Phantom-AK-1.8"), "Music")
 
 
 print(f"Music Folder: {music_folder}")
