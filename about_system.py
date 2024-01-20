@@ -28,8 +28,8 @@ def show_technical_information():
     info_window.title("About Phantom AK")
 
     initial_message = f"""
-        Phantom AK 1.8.1
-        (Build PA-1.8.1.227)
+        Phantom AK 1.9
+        (Build PA-1.9.0.227)
         
         The PhantomAK program is distributed under the terms of
         the GNU General Public License
