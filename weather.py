@@ -32,3 +32,8 @@ app.title("Weather App")
 
 label_city = Label(app, text="The current location will be determined automatically.")
 label_city.pack(pady=10)
+
+btn_get_temperature = Button(app, text="Get Current Temperature", command=get_temperature_current_location)
+btn_get_temperature.pack(pady=20)
+
+app.mainloop()
