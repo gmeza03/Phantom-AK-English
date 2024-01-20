@@ -75,7 +75,7 @@ The notepad will open shortly
         subprocess.run(["python", "about_system.py"])
 
     elif window == "R4":
-        import Music
+        import music
 
     elif window == "A6":
         system_platform = platform.system()
