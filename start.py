@@ -1,7 +1,6 @@
-import msvcrt
 import getpass
 import subprocess
-import sys
+import platform
 from datetime import datetime
 import time
 
@@ -9,21 +8,12 @@ def show_sections_menu():
     print('''
 Sections:
 
-- N1(NOTEPAD)
-
-- C2(CALCULATOR)
-  
-- A3(ABOUT THE SYSTEM)
-
-- E4(EASTEREGGS)
-
-- M5(MUSIC PLAYER)
-
-- R6(RESOURCE MANAGER(BETA))
-
-- S7(SHUTDOWN)
-          
-
+- B1 (NOTEPAD)
+- C2 (CALCULATOR)
+- A3 (ABOUT SYSTEM)
+- R4 (PLAYER)
+- C5 (WEATHER)
+- A6 (SHUTDOWN)
     ''')
 
 print('''
@@ -36,8 +26,8 @@ print('''
 
 print("Welcome")
 
-name = str(input("Write Your Name:"))
-password = getpass.getpass("Type The Password:")
+name = str(input("Enter your name:"))
+password = getpass.getpass("Enter the password:")
 
 while password != "3112003":
     password = getpass.getpass("Enter the password correctly:")
@@ -49,56 +39,54 @@ first_time = True
 
 while True:
     if first_time:
-        print("Welcome to PhantomAK 1.8.1")
+        print("Welcome to PhantomAK 1.9")
         print(name)
-        print("Created By Gael Meza")
-        print("Today Is:")
-        print(time.strftime("%m/%d/%y"))
-        actual_hour = datetime.now().strftime("%H:%M:%S")
-        print(f"The hour is: {actual_hour}")
+        print("Created by Gael Meza")
+        print("Today is:")
+        print(time.strftime("%d/%m/%y"))
+        current_time = datetime.now().strftime("%H:%M:%S")
+        print(f"The time is: {current_time}")
         first_time = False
     else:
         show_sections_menu()
 
-    N1 = ('''
-The notepad will open shortly    ''')
+    B1 = ('''
+The notepad will open shortly
+    ''')
 
-    
-
-    window = str(input("What section do you want to open? (Press M to print the sections) ")) 
-   
+    window = str(input("Which section do you want to open (M prints the sections)? : "))
 
     if window == "":
-        print("Please enter a section")
+        print("Please enter a section.")
         continue
 
-    if window == "N1":
-        print(N1)
+    if window == "B1":
+        print(B1)
         import Bloc
 
-    elif window == "E4":
-        EE = getpass.getpass("Enter the secret word: ")
-        if EE == "ferel":
-            print("Alright, you found the first easter egg. The second one is in 'About the System,' and the clue is: J.")
-        elif EE == "slug":
-            print("Give it your best shot, dude!")
-        else:
-            print("Incorrect Secret Word")
-    
+    # elif window == "E4":
+        # print("Leave this for version 2.0, not now")
+
     elif window == "C2":
-        print("The calculator will start in a moment...")
+        print("The Calculator will start shortly...")
         subprocess.run(["python", "calculator.py"])
-        
 
     elif window == "A3":
         subprocess.run(["python", "about_system.py"])
 
-    elif window == "M5":
-        import music
+    elif window == "R4":
+        import Music
 
-    elif window == "S7":
-        import os
-        os.system('shutdown -s')
+    elif window == "A6":
+        system_platform = platform.system()
+        if system_platform == "Windows":
+            # Command to shut down on Windows
+            subprocess.run(["shutdown", "/s", "/t", "0"])
+        elif system_platform == "Linux" or system_platform == "Darwin":
+            # Command to shut down on Linux or Mac
+            subprocess.run(["shutdown", "-h", "now"])
+        else:
+            print("Shutdown not compatible with the system: {system_platform}")
 
-    elif window == "R6":
-        exec(open("task_manager.py").read())
+    elif window == "C5":
+        exec(open("weather.py").read())
