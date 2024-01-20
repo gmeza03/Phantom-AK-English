@@ -4,15 +4,15 @@ import platform
 
 def show_technical_information():
     def on_key_press(event):
-        if event.char.lower() == 'j':
+        if event.char.lower() == 'f':
             update_ferel_message()
 
     def update_ferel_message():
         ferel_message = f"""
-        Phantom AK Codename Jazel 
-        (Build PA-1.8.1.227)
+        Phantom AK Codename Ferel
+        (Build PA-1.9.0.227)
         
-        This program is dedicated to Jazmin<3
+        This program is dedicated to Fer<3
         
         Written on December 21, 2023
         
